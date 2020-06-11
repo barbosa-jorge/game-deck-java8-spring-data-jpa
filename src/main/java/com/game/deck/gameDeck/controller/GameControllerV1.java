@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -28,7 +29,7 @@ public class GameControllerV1 {
     }
 
     @PostMapping("/games")
-    public ResponseEntity<GameResponseDTO> createGame(@RequestBody CreateGameRequestDTO request) {
+    public ResponseEntity<GameResponseDTO> createGame(@Valid @RequestBody CreateGameRequestDTO request) {
         return new ResponseEntity(gameService.createGame(request), HttpStatus.CREATED);
     }
 
@@ -46,7 +47,7 @@ public class GameControllerV1 {
 
     @PostMapping("/games/{game-id}/players")
     public ResponseEntity<GameResponseDTO> addPlayer(@PathVariable("game-id") Long gameId,
-                                                     @RequestBody AddPlayerRequestDTO addPlayerRequestDTO) {
+                                                     @Valid @RequestBody AddPlayerRequestDTO addPlayerRequestDTO) {
         return new ResponseEntity(gameService.addPlayer(gameId, addPlayerRequestDTO), HttpStatus.CREATED);
     }
 
