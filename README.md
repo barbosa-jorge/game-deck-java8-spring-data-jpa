@@ -2,8 +2,8 @@
 Game Deck of Cards developed for study purposes
 
 
-#Stack
-Java 8
-Spring Boot
-Spring Data JPA
+# Stack
+Java 8,
+Spring Boot,
+Spring Data JPA,
 Lombok
